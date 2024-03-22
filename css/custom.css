@@ -3,7 +3,7 @@
     max-width: 1200px;
     margin: 0 auto 12px;
     display: flex;
-    color: rgb(255 255 255 / 80%) !important;
+    color: rgb(255 255 255 / 100%) !important;
     text-align: left;
     flex-wrap: wrap;
 	font-size: 0.97rem;
@@ -35,8 +35,8 @@
     flex-direction: column;
     flex: 1.4;
     margin-right: 10px;
-	color: rgb(255 255 255 / 80%) !important;
 	font-size: 1rem;
+	font-weight:bold;
 }
 
 .t-top .t-t-l .bg-ad {
