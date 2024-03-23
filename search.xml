@@ -290,6 +290,19 @@
     
     
     <entry>
+      <title>请求转发</title>
+      <link href="/2024/03/18/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91/"/>
+      <url>/2024/03/18/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Flask教程-二十四-请求转发"><a href="#Flask教程-二十四-请求转发" class="headerlink" title="Flask教程(二十四)请求转发"></a>Flask教程(二十四)请求转发</h1><h3 id="软硬件环境"><a href="#软硬件环境" class="headerlink" title="软硬件环境"></a>软硬件环境</h3><ul><li>windows 10 64bit</li><li>anaconda3 with python 3.7</li><li><a href="https://xugaoxiang.com/tag/flask/">flask</a> 1.1.2</li></ul><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在某些情况下，我们需要在<code>flask</code>中进行<code>http</code>请求的转发，也就是让<code>flask</code>成为<code>http</code>代理。本文借助流行的<code>http</code>请求库<code>requests</code>来实现。</p><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="comment"># 这里可以使用requests.request来实现各种http方法</span></span><br><span class="line">    req = requests.get(<span class="string">&#x27;http://127.0.0.1:5000/proxy&#x27;</span>)</span><br><span class="line">    <span class="comment"># 响应体返回，这里是字符串</span></span><br><span class="line">    <span class="keyword">return</span> req.text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/proxy&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">proxy</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello Flask.&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">5000</span>,debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><p>启动服务，访问<code>http://127.0.0.1:5000</code>，页面上会显示字符串<code>Hello Flask.</code></p><p><img src="https://image.xugaoxiang.com/imgs/2020/11/6d1bee8c61840904.png" alt="flask_proxy"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>蓝图</title>
       <link href="/2024/03/18/%E8%93%9D%E5%9B%BE/"/>
       <url>/2024/03/18/%E8%93%9D%E5%9B%BE/</url>
@@ -338,19 +351,6 @@
             <tag> 路由 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>请求转发</title>
-      <link href="/2024/03/18/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91/"/>
-      <url>/2024/03/18/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Flask教程-二十四-请求转发"><a href="#Flask教程-二十四-请求转发" class="headerlink" title="Flask教程(二十四)请求转发"></a>Flask教程(二十四)请求转发</h1><h3 id="软硬件环境"><a href="#软硬件环境" class="headerlink" title="软硬件环境"></a>软硬件环境</h3><ul><li>windows 10 64bit</li><li>anaconda3 with python 3.7</li><li><a href="https://xugaoxiang.com/tag/flask/">flask</a> 1.1.2</li></ul><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在某些情况下，我们需要在<code>flask</code>中进行<code>http</code>请求的转发，也就是让<code>flask</code>成为<code>http</code>代理。本文借助流行的<code>http</code>请求库<code>requests</code>来实现。</p><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="comment"># 这里可以使用requests.request来实现各种http方法</span></span><br><span class="line">    req = requests.get(<span class="string">&#x27;http://127.0.0.1:5000/proxy&#x27;</span>)</span><br><span class="line">    <span class="comment"># 响应体返回，这里是字符串</span></span><br><span class="line">    <span class="keyword">return</span> req.text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/proxy&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">proxy</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello Flask.&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">5000</span>,debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><p>启动服务，访问<code>http://127.0.0.1:5000</code>，页面上会显示字符串<code>Hello Flask.</code></p><p><img src="https://image.xugaoxiang.com/imgs/2020/11/6d1bee8c61840904.png" alt="flask_proxy"></p>]]></content>
-      
-      
       
     </entry>
     
